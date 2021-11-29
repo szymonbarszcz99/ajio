@@ -44,5 +44,5 @@ errorCode EventHandler::addEvent(std::string name, std::string link, std::string
 
     std::cout<<"Strings are now"<<std::endl<<name<<std::endl<<link<<std::endl<<path<<std::endl;
 
-    this->writer->add(name,link,path);
+    this->writer->append(name,link,path);
 }

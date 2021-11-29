@@ -25,12 +25,12 @@ AppWindow::AppWindow(std::shared_ptr<EventHandler> eventHandler){
     this->box.add(this->pathLabel);
     this->box.add(this->pathEntry);
 
-    this->addButton = Gtk::Button("Add");
-    this->addButton.signal_clicked().connect(sigc::mem_fun(*this,&AppWindow::onAddClicked));
-    this->deleteButton = Gtk::Button("Delete last entry");
-    this->deleteButton.signal_clicked().connect(sigc::mem_fun(*this,&AppWindow::onDeleteClicked));
-    this->viewButton = Gtk::Button("Show all stations");
-    this->viewButton.signal_clicked().connect(sigc::mem_fun(*this,&AppWindow::onViewClicked));
+    this->addButton = Gtk::Button("Dodaj");
+    this->addButton.signal_clicked().connect(sigc::mem_fun(*this,&AppWindow::addClicked));
+    this->deleteButton = Gtk::Button("Usuń ostatni wpis");
+    this->deleteButton.signal_clicked().connect(sigc::mem_fun(*this,&AppWindow::deleteClicked));
+    this->viewButton = Gtk::Button("Zobacz wszystkie");
+    this->viewButton.signal_clicked().connect(sigc::mem_fun(*this,&AppWindow::viewClicked));
     this->box.add(this->addButton);
     this->box.add(this->deleteButton);
     this->box.add(this->viewButton);
@@ -38,7 +38,7 @@ AppWindow::AppWindow(std::shared_ptr<EventHandler> eventHandler){
     this->box.show_all();
 }
 
-void AppWindow::onAddClicked() {
+void AppWindow::addClicked() {
     std::cout<<"Add clicked"<<std::endl;
     errorCode returnCode = this->eventHandler->addEvent(this->nameEntry.get_text(),
                                  this->linkEntry.get_text(),
@@ -59,12 +59,12 @@ void AppWindow::onAddClicked() {
     this->pathEntry.set_text("");
 }
 
-void AppWindow::onDeleteClicked() {
+void AppWindow::deleteClicked() {
     std::cout<<"Delete clicked"<<std::endl;
     this->eventHandler->deleteEvent();
 }
 
-void AppWindow::onViewClicked() {
+void AppWindow::viewClicked() {
     std::cout<<"View clicked"<<std::endl;
     this->eventHandler->viewEvent();
 }

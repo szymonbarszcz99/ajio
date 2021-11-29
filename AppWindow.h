@@ -14,9 +14,9 @@ class AppWindow : public Gtk::ApplicationWindow{
     Gtk::Label nameLabel, linkLabel, pathLabel;
     Gtk::Button addButton, deleteButton, viewButton;
     Gtk::Box box;
-    void onAddClicked();
-    void onDeleteClicked();
-    void onViewClicked();
+    void addClicked();
+    void deleteClicked();
+    void viewClicked();
     std::shared_ptr<EventHandler> eventHandler;
     void throwModal(std::string errorString);
 

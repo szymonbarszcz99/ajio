@@ -6,7 +6,7 @@ Writer::Writer() {
     this->output.close();
 }
 
-void Writer::add(std::string name, std::string link, std::string path) {
+void Writer::append(std::string name, std::string link, std::string path) {
     if(name[0] == '\n')name.erase(0);
     if(name.back() == '\n')name.erase(name.back());
 

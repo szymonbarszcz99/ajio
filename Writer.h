@@ -13,7 +13,7 @@ public:
     ~Writer(){
         std::cout<<"Writer destructor"<<std::endl;
     }
-    void add(std::string name, std::string link, std::string path);
+    void append(std::string name, std::string link, std::string path);
     void deleteLast();
     const std::vector<std::tuple<std::string,std::string,std::string>>& getVector();
 };
